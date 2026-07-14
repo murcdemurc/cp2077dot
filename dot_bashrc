@@ -1,0 +1,15 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+fastfetch
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias orphans='pacman -Qtdq | sudo pacman -Rns -'
+alias cache='paru -Scc'
+
+PS1='[\u@\h \W]\$ '
