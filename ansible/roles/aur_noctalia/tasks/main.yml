@@ -1,8 +1,5 @@
----
 - name: Install noctalia AUR packages
-  kewlfft.aur.aur:
-    name:
-      - noctalia-git
-      - noctalia-shell
-    use: paru
+  ansible.builtin.command:
+    cmd: paru -S --noconfirm noctalia-git noctalia-shell
   become: false
+  changed_when: false
