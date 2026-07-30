@@ -1,0 +1,40 @@
+- name: Configure localhost
+  hosts: localhost
+  connection: local
+  become: true
+  gather_facts: true
+
+  vars:
+    install_essential: true
+    install_gaming: true
+    install_utils: true
+    install_aur_leisure: true
+    install_aur_work: false
+    install_aur_noctalia: true
+    install_productivity: false
+    install_ltr: false
+ 
+  roles:
+    - role: essential
+      when: install_essential | bool
+
+    - role: aur_leisure
+      when: install_aur_leisure | bool
+
+    - role: aur_work
+      when: install_aur_work | bool
+
+    - role: aur_noctalia
+      when: install_aur_noctalia | bool
+
+    - role: gaming
+      when: install_gaming | bool
+
+    - role: utils
+      when: install_utils | bool
+
+    - role: productivity
+      when: install_productivity | bool
+
+    - role: ltr
+      when: install_ltr | bool

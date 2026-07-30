@@ -1,0 +1,5 @@
+
+[Default Applications]
+x-scheme-handler/nxm=com.nexusmods.app.desktop
+x-scheme-handler/dzr=deezer-desktop.desktop
+x-scheme-handler/deezer=deezer-desktop.desktop

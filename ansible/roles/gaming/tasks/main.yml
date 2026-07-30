@@ -1,0 +1,14 @@
+- name: Install gaming pacman packages
+  ansible.builtin.package:
+    name:
+      - linux-rt
+      - linux-rt-headers
+      - mesa
+      - steam
+      - gamescope
+      - lact
+      - wine
+      - wine-mono
+      - protontricks
+      - vulkan-radeon
+    state: present

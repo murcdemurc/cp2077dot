@@ -2,8 +2,5 @@
 
 sudo cp "{{ .chezmoi.sourceDir }}/grub/grub" /etc/default/grub
 
-sudo mkdir -p /boot/grub/themes
 sudo cp -r "{{ .chezmoi.sourceDir }}/grub/themes/CyberGRUB-2077" /boot/grub/themes/
-
-
 sudo grub-mkconfig -o /boot/grub/grub.cfg

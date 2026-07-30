@@ -1,0 +1,5 @@
+private_dot_config/niri/config.kdl.backup.*
+private_dot_config/niri/config.kdl.backup.*/**
+dot_local/private_state/noctalia/plugins/sources/official/repo/dot_git/
+dot_local/private_state/noctalia/plugins/sources/official/repo/dot_git/**
+README.md

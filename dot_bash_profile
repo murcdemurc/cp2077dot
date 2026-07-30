@@ -1,0 +1,8 @@
+#
+# ~/.bash_profile
+#
+
+fastfetch
+
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc

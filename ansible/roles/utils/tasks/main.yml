@@ -1,0 +1,22 @@
+---
+- name: Install utility packages
+  ansible.builtin.package:
+    name:
+      - bluez
+      - btop
+      - fastfetch
+      - fuzzel
+      - nextcloud-client
+      - noto-fonts
+      - opencode
+      - partitionmanager
+      - pavucontrol
+      - ranger
+      - reflector
+      - smartmontools
+      - tree
+      - vim
+      - wget
+      - zip
+      - zram-generator
+    state: present

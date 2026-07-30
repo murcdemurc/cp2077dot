@@ -1,0 +1,16 @@
+---
+- name: Install essential pacman packages
+  ansible.builtin.package:
+    name:
+      - thunderbird
+      - reaper
+      - waydroid
+      - flatpak
+    state: present
+
+
+- name: Install Flatpak applications
+  community.general.flatpak:
+    name:
+      - com.behringer.XAirEdit
+    state: present

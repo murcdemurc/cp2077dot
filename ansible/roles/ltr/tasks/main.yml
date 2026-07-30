@@ -1,0 +1,4 @@
+---
+- name: Placeholder for ltr role
+  ansible.builtin.debug:
+    msg: "ltr role not yet implemented"
