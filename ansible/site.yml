@@ -13,6 +13,13 @@
     install_aur_noctalia: true
     install_productivity: false
     install_ltr: false
+
+  tasks:
+    - name: Store original user
+      set_fact:
+        original_user: "{{ ansible_user_id }}"
+      become: false
+
  
   roles:
     - role: essential
