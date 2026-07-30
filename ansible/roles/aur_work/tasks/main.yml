@@ -1,7 +1,5 @@
----
 - name: Install work AUR packages
-  kewlfft.aur.aur:
-    name:
-      - onlyoffice-bin
-    use: paru
+  ansible.builtin.command:
+    cmd: paru -S --noconfirm onlyoffice-bin
   become: false
+  changed_when: false
