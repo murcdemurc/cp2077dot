@@ -40,7 +40,7 @@
 
 - name: Copy sudoers rule for paru
     become: true
-    ansible.builtin.copy:
+  ansible.builtin.copy:
     src: "{{ lookup('env', 'HOME') }}/.local/share/chezmoi/etc_sudoers.d/10-murc-paru"
     dest: /etc/sudoers.d/10-murc-paru
     mode: '0440'
