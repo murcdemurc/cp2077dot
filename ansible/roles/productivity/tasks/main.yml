@@ -1,5 +1,6 @@
 ---
 - name: Install essential pacman packages
+  become: true
   ansible.builtin.package:
     name:
       - thunderbird
