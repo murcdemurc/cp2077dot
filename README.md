@@ -15,5 +15,5 @@ sh -c "$(curl -fsLS get.chezmoi.io)"
 ## Dot-File Installation
 
 ```bash 
-chezmoi init --apply git@github.com:murcdemurc/cp2077dot.git
+chezmoi init apply https://github.com/murcdemurc/cp2077dot.git
 ```
