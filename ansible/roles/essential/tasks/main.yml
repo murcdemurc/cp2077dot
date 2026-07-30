@@ -1,4 +1,3 @@
----
 - name: Install essential packages
   become: true
   ansible.builtin.package:
@@ -56,7 +55,6 @@
   register: paru_check
   failed_when: false
   changed_when: false
-  
 
 - name: Clone paru repository
   ansible.builtin.git:
