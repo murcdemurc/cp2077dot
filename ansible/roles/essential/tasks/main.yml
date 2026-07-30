@@ -39,7 +39,7 @@
     mode: '0750'
 
 - name: Copy sudoers rule for paru
-    become: true
+  become: true
   ansible.builtin.copy:
     src: "{{ lookup('env', 'HOME') }}/.local/share/chezmoi/etc_sudoers.d/10-murc-paru"
     dest: /etc/sudoers.d/10-murc-paru
@@ -57,11 +57,12 @@
   changed_when: false
 
 - name: Clone paru repository
+  become: false
   ansible.builtin.git:
     repo: https://aur.archlinux.org/paru.git
     dest: "{{ ansible_env.HOME }}/paru"
   when: paru_check.rc != 0
-  become: false
+  
 
 - name: Build and install paru
   become: false
