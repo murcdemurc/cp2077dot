@@ -174,7 +174,7 @@
                 {
                     "colorizeIcons": false,
                     "hideMode": "visible",
-                    "iconScale": 0.65,
+                    "iconScale": 0.8,
                     "id": "Taskbar",
                     "maxTaskbarWidth": 40,
                     "onlyActiveWorkspaces": true,
@@ -406,7 +406,7 @@
         "radiusRatio": 1,
         "reverseScroll": false,
         "scaleRatio": 1,
-        "screenRadiusRatio": 1,
+        "screenRadiusRatio": 0,
         "shadowDirection": "bottom_right",
         "shadowOffsetX": 2,
         "shadowOffsetY": 3,
