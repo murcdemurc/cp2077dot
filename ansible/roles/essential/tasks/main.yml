@@ -62,11 +62,13 @@
   become: false
 
 - name: Build and install paru
+  become: yes
+  become_user: "{{ ansible_user_id }}"
   ansible.builtin.command:
     cmd: makepkg -si --noconfirm
     chdir: "{{ ansible_env.HOME }}/paru"
   when: paru_check.rc != 0
-  become: false
+  changed_when: false
 
 - name: Remove paru build directory
   ansible.builtin.file:
