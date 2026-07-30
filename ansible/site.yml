@@ -1,7 +1,5 @@
 - name: Configure localhost
   hosts: localhost
-  connection: local
-  become: true
   gather_facts: true
 
   vars:
