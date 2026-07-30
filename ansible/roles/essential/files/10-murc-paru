@@ -1,0 +1,1 @@
+murc ALL=(ALL) NOPASSWD: /usr/bin/pacman, /usr/bin/paru
