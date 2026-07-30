@@ -1,7 +1,7 @@
 ---
 - name: Install essential packages
+  become: true
   ansible.builtin.package:
-    become: true
     name:
       - git
       - curl
@@ -33,6 +33,7 @@
     state: present
 
 - name: Ensure /etc/sudoers.d exists
+  become: true
   ansible.builtin.file:
     path: /etc/sudoers.d
     state: directory
@@ -48,12 +49,13 @@
     validate: /usr/sbin/visudo -cf %s
 
 - name: Check if paru is installed
+  become: false
   ansible.builtin.command:
     cmd: which paru
   register: paru_check
   failed_when: false
   changed_when: false
-  become: false
+  
 
 - name: Clone paru repository
   ansible.builtin.git:
@@ -63,8 +65,7 @@
   become: false
 
 - name: Build and install paru
-  become: yes
-  become_user: "{{ ansible_user_id }}"
+  become: false
   ansible.builtin.command:
     cmd: makepkg -si --noconfirm
     chdir: "{{ ansible_env.HOME }}/paru"
@@ -72,8 +73,9 @@
   changed_when: false
 
 - name: Remove paru build directory
+  become: true
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/paru"
     state: absent
   when: paru_check.rc != 0
-  become: false
+  
