@@ -14,5 +14,5 @@
 - name: Copy noctalia wallpaper
   become: false
   ansible.builtin.copy:
-    src: wallhaven_rrywgw.jpg
-    dest: "{{ ansible_env.HOME }}/Pictures/Wallpapers/wallhaven_rrywgw.jpg"
+    src: cyberporsche.png
+    dest: "{{ ansible_env.HOME }}/Pictures/Wallpapers/cyberporsche.png"

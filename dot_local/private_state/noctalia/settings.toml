@@ -46,7 +46,7 @@ source = "community"
 directory = "/home/murc/Pictures/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/murc/Pictures/Wallpapers/wallhaven_7p6g99.jpg"
+    path = "/home/murc/Pictures/Wallpapers/cyberporsche.png"
 
     [wallpaper.last]
-    path = "/home/murc/Pictures/Wallpapers/wallhaven_7p6g99.jpg"
+    path = "/home/murc/Pictures/Wallpapers/cyberporsche.png"
