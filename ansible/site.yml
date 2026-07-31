@@ -8,7 +8,7 @@
     install_sddm_theme: true
     install_essential: true
     install_utils: true
-    install_noctalia_git: true
+    install_noctalia_git: false
     install_noctalia_shell: true
     install_aur_leisure: true
     install_aur_work: false
