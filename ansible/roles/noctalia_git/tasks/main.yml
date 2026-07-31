@@ -3,7 +3,6 @@
   kewlfft.aur.aur:
     name: noctalia-git
     use: paru
-    skip_pgp_check: true
   become: false
 
 - name: Create wallpapers directory
