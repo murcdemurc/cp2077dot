@@ -1,29 +1,43 @@
 - name: Configure localhost
   hosts: localhost
+  connection: local
   gather_facts: true
 
   vars:
+    install_grub_theme: true
+    install_sddm_theme: true
     install_essential: true
-    install_gaming: true
     install_utils: true
+    install_noctalia_git: true
+    install_noctalia_shell: true
     install_aur_leisure: true
     install_aur_work: false
-    install_aur_noctalia: true
+    install_gaming: true
     install_productivity: false
     install_ltr: false
- 
+
   roles:
+
+    - role: grub_theme
+      when: install_grub_theme | bool
+
+    - role: sddm_theme
+      when: install_sddm_theme | bool
+
     - role: essential
       when: install_essential | bool
+
+    - role: noctalia_git
+      when: install_noctalia_git | bool
+
+    - role: noctalia_shell
+      when: install_noctalia_shell | bool
 
     - role: aur_leisure
       when: install_aur_leisure | bool
 
     - role: aur_work
       when: install_aur_work | bool
-
-    - role: aur_noctalia
-      when: install_aur_noctalia | bool
 
     - role: gaming
       when: install_gaming | bool

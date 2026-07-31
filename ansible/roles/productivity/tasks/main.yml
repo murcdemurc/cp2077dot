@@ -1,5 +1,5 @@
 ---
-- name: Install essential pacman packages
+- name: Install productivity pacman packages
   become: true
   ansible.builtin.package:
     name:
@@ -8,7 +8,6 @@
       - waydroid
       - flatpak
     state: present
-
 
 - name: Install Flatpak applications
   community.general.flatpak:

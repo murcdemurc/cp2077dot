@@ -1,5 +1,0 @@
-- name: Install noctalia AUR packages
-  ansible.builtin.command:
-    cmd: paru -S --noconfirm noctalia-git noctalia-shell
-  become: false
-  changed_when: false

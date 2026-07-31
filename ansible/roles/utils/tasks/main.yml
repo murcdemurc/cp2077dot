@@ -3,21 +3,21 @@
   become: true
   ansible.builtin.package:
     name:
-      - bluez
       - btop
       - fastfetch
       - fuzzel
       - nextcloud-client
       - noto-fonts
+      - ranger
+      - tree
+      - zip
+
       - opencode
       - partitionmanager
       - pavucontrol
-      - ranger
       - reflector
       - smartmontools
-      - tree
       - vim
       - wget
-      - zip
       - zram-generator
     state: present

@@ -1,4 +1,9 @@
 - name: Install leisure AUR packages
-  ansible.builtin.command: paru -S --noconfirm librewolf-bin deezer
+  kewlfft.aur.aur:
+    name:
+      - librewolf-bin
+      - deezer
+      - spotify
+    use: paru
   become: false
   changed_when: false

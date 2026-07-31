@@ -8,19 +8,22 @@
 
       - pipewire
       - wireplumber
+      - pipewire-pulse
       - mesa
       - power-profiles-daemon
-      - pipewire-pulse
-      - polkit-gnome
-      - xdg-utils
-      - xorg-xwayland
+      - bluez
 
       - mako
       - sddm
       - niri
       - ttf-jetbrains-mono-nerd
       - ghostty
+      - alacritty
       - dolphin
+
+      - polkit-gnome
+      - xdg-utils
+      - xorg-xwayland
       - amd-ucode
       - efibootmgr
       - grub
@@ -30,6 +33,29 @@
       - network-manager-applet
 
     state: present
+
+- name: Enable system services
+  become: true
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    enabled: true
+    daemon_reload: true
+  loop:
+    - sddm
+    - NetworkManager
+    - bluetooth
+
+- name: Enable user services (pipewire)
+  become: false
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    enabled: true
+    scope: user
+    daemon_reload: true
+  loop:
+    - pipewire
+    - wireplumber
+    - pipewire-pulse
 
 - name: Ensure /etc/sudoers.d exists
   become: true
