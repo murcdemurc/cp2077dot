@@ -67,7 +67,7 @@
 - name: Copy sudoers rule for paru
   become: true
   ansible.builtin.copy:
-    src: 10-murc-paru
+    content: "{{ ansible_env.USER }} ALL=(ALL) NOPASSWD: /usr/bin/pacman, /usr/bin/paru\n"
     dest: /etc/sudoers.d/10-murc-paru
     mode: '0440'
     owner: root
