@@ -16,4 +16,4 @@ ansible-galaxy collection install -r "${SOURCE_DIR}/ansible/requirements.yml"
 echo "==> Running Ansible..."
 
 export ANSIBLE_CONFIG="${SOURCE_DIR}/ansible/ansible.cfg"
-ansible-playbook -i localhost, -c local "${SOURCE_DIR}/ansible/site.yml"
+ansible-playbook -i localhost, -c local "${SOURCE_DIR}/ansible/site.yml" --ask-become-pass

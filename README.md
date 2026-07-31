@@ -49,7 +49,7 @@ chezmoi diff           # see pending changes
 
 1. Installs Ansible if missing
 2. Installs the required collections (`kewlfft.aur`, `community.general`) from `ansible/requirements.yml`
-3. Runs `ansible-playbook -i localhost, -c local ansible/site.yml` (config from `ansible/ansible.cfg`)
+3. Runs `ansible-playbook -i localhost, -c local ansible/site.yml --ask-become-pass` (config from `ansible/ansible.cfg`)
 
 All provisioning is idempotent and controlled via feature flags in `ansible/site.yml`.
 
