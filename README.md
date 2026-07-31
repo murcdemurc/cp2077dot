@@ -22,8 +22,8 @@ This setup is only for Arch / Arch-based distros.
 ## Setup
 
 ```bash
-# Install chezmoi
-sudo pacman -S chezmoi
+# Install chezmoi and git (git is required for chezmoi init)
+sudo pacman -S chezmoi git
 ```
 
 ```bash
