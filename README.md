@@ -28,7 +28,7 @@ sudo pacman -S chezmoi
 
 ```bash
 # Apply dotfiles (installs Ansible and runs the playbook automatically)
-chezmoi init --apply git@github.com:murcdemurc/cp2077dot.git
+chezmoi init --apply https://github.com/murcdemurc/cp2077dot.git
 ```
 
 You'll be prompted for your sudo password where needed.

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SOURCE_DIR="{{ .chezmoi.sourceDir }}"
+
 echo "==> Checking for Ansible..."
 
 if ! command -v ansible-playbook >/dev/null 2>&1; then
@@ -9,8 +11,8 @@ if ! command -v ansible-playbook >/dev/null 2>&1; then
 fi
 
 echo "==> Installing Ansible collections..."
-ansible-galaxy collection install -r ansible/requirements.yml
+ansible-galaxy collection install -r "${SOURCE_DIR}/ansible/requirements.yml"
 
 echo "==> Running Ansible..."
 
-ansible-playbook -i localhost, -c local ansible/site.yml --ask-become-pass
+ansible-playbook -i localhost, -c local "${SOURCE_DIR}/ansible/site.yml" --ask-become-pass
