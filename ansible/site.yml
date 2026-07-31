@@ -16,37 +16,83 @@
     install_productivity: false
     install_ltr: false
 
-  roles:
+  tasks:
 
-    - role: grub_theme
+    - name: grub_theme
+      ansible.builtin.include_role:
+        name: grub_theme
       when: install_grub_theme | bool
 
-    - role: sddm_theme
+    - name: sddm_theme
+      ansible.builtin.include_role:
+        name: sddm_theme
       when: install_sddm_theme | bool
 
-    - role: essential
+    - name: essential
+      ansible.builtin.include_role:
+        name: essential
       when: install_essential | bool
 
-    - role: noctalia_git
+    - name: noctalia_git
+      block:
+        - name: Run noctalia_git role
+          ansible.builtin.include_role:
+            name: noctalia_git
+      rescue:
+        - name: noctalia_git failed, continuing
+          ansible.builtin.debug:
+            msg: "noctalia_git role failed, continuing with remaining roles"
       when: install_noctalia_git | bool
 
-    - role: noctalia_shell
+    - name: noctalia_shell
+      block:
+        - name: Run noctalia_shell role
+          ansible.builtin.include_role:
+            name: noctalia_shell
+      rescue:
+        - name: noctalia_shell failed, continuing
+          ansible.builtin.debug:
+            msg: "noctalia_shell role failed, continuing with remaining roles"
       when: install_noctalia_shell | bool
 
-    - role: aur_leisure
+    - name: aur_leisure
+      block:
+        - name: Run aur_leisure role
+          ansible.builtin.include_role:
+            name: aur_leisure
+      rescue:
+        - name: aur_leisure failed, continuing
+          ansible.builtin.debug:
+            msg: "aur_leisure role failed, continuing with remaining roles"
       when: install_aur_leisure | bool
 
-    - role: aur_work
+    - name: aur_work
+      block:
+        - name: Run aur_work role
+          ansible.builtin.include_role:
+            name: aur_work
+      rescue:
+        - name: aur_work failed, continuing
+          ansible.builtin.debug:
+            msg: "aur_work role failed, continuing with remaining roles"
       when: install_aur_work | bool
 
-    - role: gaming
+    - name: gaming
+      ansible.builtin.include_role:
+        name: gaming
       when: install_gaming | bool
 
-    - role: utils
+    - name: utils
+      ansible.builtin.include_role:
+        name: utils
       when: install_utils | bool
 
-    - role: productivity
+    - name: productivity
+      ansible.builtin.include_role:
+        name: productivity
       when: install_productivity | bool
 
-    - role: ltr
+    - name: ltr
+      ansible.builtin.include_role:
+        name: ltr
       when: install_ltr | bool
