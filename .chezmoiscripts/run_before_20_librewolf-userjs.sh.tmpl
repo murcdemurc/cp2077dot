@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Verlinkt die von chezmoi verwaltete ~/.librewolf/user.js in jedes Profil.
+set -euo pipefail
+
+LW_DIR="$HOME/.librewolf"
+CANONICAL="$LW_DIR/user.js"
+
+[[ -f "$LW_DIR/profiles.ini" ]] || exit 0
+
+for profile in "$LW_DIR"/*/; do
+    [[ -f "${profile}prefs.js" ]] || continue
+    if [[ -e "${profile}user.js" && ! -L "${profile}user.js" ]]; then
+        echo "==> user.js in ${profile} existiert bereits (übersprungen)"
+        continue
+    fi
+    ln -sf "$CANONICAL" "${profile}user.js"
+    echo "==> user.js verlinkt in ${profile}"
+done

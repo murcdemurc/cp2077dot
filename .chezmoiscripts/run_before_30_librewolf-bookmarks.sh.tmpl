@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Exportiert die LibreWolf-Lesezeichen nach librewolf-bookmarks.json.
+set -euo pipefail
+
+SOURCE_DIR="{{ .chezmoi.sourceDir }}"
+
+[[ -f "$HOME/.librewolf/profiles.ini" ]] || exit 0
+
+python3 "${SOURCE_DIR}/scripts/librewolf-bookmarks.py" "${SOURCE_DIR}/librewolf-bookmarks.json"
