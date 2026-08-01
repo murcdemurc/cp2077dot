@@ -56,11 +56,6 @@
             msg: "noctalia_shell role failed, continuing with remaining roles"
       when: install_noctalia_shell | bool
 
-    - name: services
-      ansible.builtin.include_role:
-        name: services
-      when: install_services | bool
-
     - name: aur_leisure
       block:
         - name: Run aur_leisure role
@@ -102,3 +97,8 @@
       ansible.builtin.include_role:
         name: ltr
       when: install_ltr | bool
+
+    - name: services
+      ansible.builtin.include_role:
+        name: services
+      when: install_services | bool
