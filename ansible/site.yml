@@ -10,6 +10,7 @@
     install_utils: true
     install_noctalia_git: false
     install_noctalia_shell: true
+    install_services: true
     install_aur_leisure: true
     install_aur_work: false
     install_gaming: true
@@ -54,6 +55,11 @@
           ansible.builtin.debug:
             msg: "noctalia_shell role failed, continuing with remaining roles"
       when: install_noctalia_shell | bool
+
+    - name: services
+      ansible.builtin.include_role:
+        name: services
+      when: install_services | bool
 
     - name: aur_leisure
       block:
