@@ -39,6 +39,7 @@
   ansible.builtin.systemd:
     name: "{{ item }}"
     enabled: true
+    state: started
     daemon_reload: true
   loop:
     - sddm
@@ -50,6 +51,7 @@
   ansible.builtin.systemd:
     name: "{{ item }}"
     enabled: true
+    state: started
     scope: user
     daemon_reload: true
   loop:

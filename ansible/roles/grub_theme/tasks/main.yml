@@ -5,15 +5,6 @@
     src: CyberGRUB-2077/
     dest: /boot/grub/themes/CyberGRUB-2077/
 
-- name: Configure GRUB
-  become: true
-  ansible.builtin.copy:
-    src: grub
-    dest: /etc/default/grub
-    owner: root
-    group: root
-    mode: '0644'
-
 - name: Regenerate GRUB config
   become: true
   ansible.builtin.command:
