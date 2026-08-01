@@ -34,3 +34,20 @@
     path: /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
     regexp: '^ConfigFile=.*'
     line: ConfigFile=Themes/astronaut.conf
+
+- name: Create SDDM config directory
+  become: true
+  ansible.builtin.file:
+    path: /etc/sddm.conf.d/
+    state: directory
+
+- name: Configure SDDM theme
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/sddm.conf.d/theme.conf
+    owner: root
+    group: root
+    mode: '0644'
+    content: |
+      [Theme]
+      Current=sddm-astronaut-theme
