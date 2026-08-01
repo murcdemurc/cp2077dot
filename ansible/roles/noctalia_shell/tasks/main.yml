@@ -1,4 +1,18 @@
 ---
+- name: Remove conflicting quickshell packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - quickshell
+      - quickshell-git
+    state: absent
+
+- name: Install noctalia-qs AUR package
+  kewlfft.aur.aur:
+    name: noctalia-qs
+    use: paru
+  become: false
+
 - name: Install noctalia-shell AUR package
   kewlfft.aur.aur:
     name: noctalia-shell
